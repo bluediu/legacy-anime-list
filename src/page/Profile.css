@@ -1,0 +1,46 @@
+.profile-container {
+  overflow-y: scroll;
+  font-family: 'Raleway' !important;
+  height: 100vh;
+  background-color: #f8ceec;
+  background-image: linear-gradient(
+    315deg,
+    #f8ceec 0%,
+    #a88beb 74%
+  );
+}
+
+.user-photo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%;
+}
+
+.profile-user {
+  height: 40%;
+  box-shadow: 0 2px 9px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  background-clip: padding-box;
+}
+
+.profile-card {
+  padding: 1.2rem 3rem;
+  margin: 0.5rem;
+  box-shadow: 0 2px 9px rgba(0, 0, 0, 0.2);
+}
+
+.profile-card > p {
+  display: block;
+  text-align: center;
+  font-weight: 800;
+}
+
+.profile-card > span {
+  display: block;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+}

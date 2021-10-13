@@ -1,13 +1,425 @@
+/* utilities clases */
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* general styles */
+.main-color-page {
+  background-color: #f8ceec;
+  background-image: linear-gradient(
+    315deg,
+    #f8ceec 0%,
+    #a88beb 74%
+  );
+
+  display: flex;
+  height: 100vh;
+  z-index: 999;
+}
+
+.main-color-list {
+  background-color: #9921e8;
+  background-image: linear-gradient(
+    315deg,
+    #9921e8 0%,
+    #5f72be 74%
+  );
+}
+
+/* forms styled and navbar */
+.nav-tran {
+  background-color: rgba(253, 254, 254, 0.4);
+}
+
+.form-tran {
+  background-color: rgba(253, 254, 254, 0.7);
+}
+
+.form-control {
+  background-color: rgba(253, 254, 254, 0.8);
+}
+
+/* custom input */
+.custom-input {
+  background-color: rgba(72, 75, 106, 0.5);
+  border-radius: 5px;
+  border: 0;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  outline: none;
+  padding: 0.68rem 0.9rem;
+  width: 100%;
+}
+
+.custom-input::placeholder {
+  color: white;
+}
+
+.main-color-nav {
+  background-color: #05e8ba;
+  background-image: linear-gradient(
+    315deg,
+    #05e8ba 0%,
+    #087ee1 74%
+  );
+
+  height: 100vh;
+  overflow: auto;
+}
+
+/* entries */
+
+.container-entries {
+  background-color: rgba(72, 75, 106, 0.8);
+  border-radius: 4px;
+  margin-top: 1rem;
+  max-height: 400px;
+  overflow-y: scroll;
+}
+
+@media only screen and (min-width: 1024px) {
+  .container-entries {
+    max-height: 460px;
+  }
+}
+
+.list-container {
+  align-items: center;
+  border-top: 1px dashed hsl(237, 14%, 26%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem 0.9rem;
+  text-align: left;
+}
+
+.list-container:first-child {
+  border-top: 0;
+}
+
+.list-title {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.list-btn {
+  color: #b3b6b7;
+  cursor: pointer;
+}
+
+.custom-check {
+  background-color: transparent;
+  border-radius: 50%;
+  margin-right: 20px;
+  padding: 0.56rem;
+}
+
+.custom-type-action {
+  align-items: center;
+  border-radius: 50%;
+  border: 0;
+  bottom: 1vh;
+  cursor: pointer;
+  display: flex;
+  font-size: 2rem;
+  font-weight: bold;
+  height: 3rem;
+  justify-content: center;
+  outline: 0;
+  position: fixed;
+  right: 1vw;
+  width: 3rem;
+  z-index: 999;
+}
+
+.custom-type-delete {
+  align-items: center;
+  border-radius: 50%;
+  border: 0;
+  bottom: 2vh;
+  cursor: pointer;
+  display: flex;
+  font-size: 2rem;
+  font-weight: bold;
+  height: 3rem;
+  justify-content: center;
+  left: 1vw;
+  outline: 0;
+  position: fixed;
+  width: 3rem;
+  z-index: 999;
+}
+.custom-type-edit {
+  align-items: center;
+  border-radius: 50%;
+  border: 0;
+  bottom: 2vh;
+  cursor: pointer;
+  display: flex;
+  font-size: 2rem;
+  font-weight: bold;
+  height: 3rem;
+  justify-content: center;
+  outline: 0;
+  position: fixed;
+  right: 1vw;
+  width: 3rem;
+  z-index: 999;
+}
+
+@media only screen and (max-width: 400px) {
+  .custom-type-action {
+    bottom: 12vh;
+    right: 1vw;
+  }
+}
+
+.plus-btn > svg {
+  margin-top: -4px;
+  width: 30px;
+}
+
+.action-nav-title {
+  align-items: flex-start;
+  color: white;
+  display: flex;
+  margin-left: 12px;
+}
+
+.action-nav-back {
+  cursor: pointer;
+}
+
+.action-nav-title h6 {
+  color: white;
+  margin-left: 23px;
+  margin-top: 3px;
+}
+
+/* view notes */
+
+.view-notes {
+  align-items: center;
+  background-color: rgba(72, 75, 106, 0.9);
+  border-radius: 5px;
+  bottom: 0px;
+  color: white;
+  display: flex;
+  font-family: 'Montserrat', sans-serif;
+  justify-content: space-evenly;
+  margin-top: 1rem;
+  padding: 0.9rem 0.9rem;
+  position: sticky;
+  width: 100%;
+}
+
+.view-notes-item {
+  cursor: pointer;
+  font-size: 0.83rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.view-note-active {
+  color: #909497;
+  font-weight: 600;
+}
+
+/* wave effect */
+.wrapper {
+  position: relative;
+}
+
+.wave {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+}
+
+/* toast */
+.toast-wrapper {
+  position: relative;
+}
+
+.toast-show {
+  background-color: rgba(253, 254, 254, 0.9);
+  display: block;
+  margin-top: 3px;
+  position: fixed;
+  right: 15px;
+  z-index: 1;
+}
+
+.exit {
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 360px) {
+  .toast-show {
+    width: 90%;
+  }
+}
+
+/* social auth */
+
+.social-media {
+  align-items: center;
+  background-color: rgba(24, 24, 24, 0.1);
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 1.3rem;
+  margin-top: 1.3rem;
+  padding: 0.6rem 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.social-icon {
+  text-align: center;
+}
+
+.social-media:hover {
+  background-color: rgba(24, 24, 24, 0.7);
+  color: white;
+}
+
+.social-text {
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+@media only screen and (max-width: 998px) {
+  .movil-view-img {
+    display: none;
+  }
+
+  .form-tran {
+    width: 90%;
+    margin: 1rem;
+  }
+}
+
+/* ScrollBar */
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  background: rgba(7, 7, 7, 0.1);
+  border: 0;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px grey;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(215, 176, 231, 0.8);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: rgba(8, 247, 255, 0.9);
+}
+
+/* clipboard */
+.clip {
+  background-color: rgba(2, 2, 2, 0.2);
+  border-radius: 7px;
+  display: inline-block;
+  margin-left: 0.7rem;
+  margin: 0;
+  padding-bottom: 0.25rem;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  padding-top: 0.1rem;
+}
+
+.clip-success {
+  background-color: rgba(46, 204, 113, 0.8);
+  border-radius: 7px;
+  display: inline-block;
+  margin-left: 0.7rem;
+  margin: 0;
+  padding-bottom: 0.25rem;
+  padding-left: 0.2rem;
+  padding-right: 0.2rem;
+  padding-top: 0.1rem;
+}
+
+/* anime Images */
+.upload-img {
+  border: 1px dashed white;
+  color: white;
+  cursor: pointer;
+  display: block;
+  margin: 1rem;
+  padding: 1rem 2rem;
+  text-align: center;
+}
+
+.upload-img > small {
+  display: block;
+  transition: all 0.2s ease-in;
+}
+
+.upload-img:hover {
+  background-color: #ffff;
+  color: black;
+}
+
+/* responsive for mobiles */
+
+@media only screen and (max-height: 600px) {
+  .small-phone-height {
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .view-notes {
+    background-color: rgba(72, 75, 106);
+    bottom: 0;
+    margin-right: 0;
+    position: fixed;
+    width: 92.3%;
+  }
+  .container-entries {
+    max-height: 350px;
+  }
+}
+
+@media only screen and (min-height: 800px) {
+  .container-entries {
+    max-height: 547px;
+  }
+}
+
+/* WELCOME MESSAGE */
+.welcome-card {
+  background-color: rgba(2, 2, 2, 0.1);
+  border-radius: 5px;
+  font-family: inherit;
+  padding: 0.5rem;
+}
+.welcome {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.welcome-name {
+  font-size: 1.4rem;
+  margin-left: 6px;
+  color: #271a2c;
 }
