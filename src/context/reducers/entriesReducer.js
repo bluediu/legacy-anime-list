@@ -4,7 +4,6 @@ const initialState = {
   entries: [],
   active: null,
   isLoading: true,
-  thereAreData: true,
 };
 
 export const entriesReducer = (state = initialState, action) => {

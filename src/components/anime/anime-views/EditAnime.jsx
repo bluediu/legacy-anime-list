@@ -66,7 +66,7 @@ function EditAnime() {
 
   // delete a anime
   const handleDelete = () => {
-    dispatch(startDeleteEntry(form.id));
+    dispatch(startDeleteEntry(form.id, form.title));
     history.push('/');
   };
 

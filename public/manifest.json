@@ -1,6 +1,7 @@
 {
   "short_name": "AnimeList",
   "name": "AnimeList",
+  "description": "Guarda y clasifica tus anime favoritos de forma segura y rápida",
   "icons": [
     {
       "src": "favicon.ico",

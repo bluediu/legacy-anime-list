@@ -23,7 +23,6 @@ function AnimeEntries() {
   const { entries, isLoading } = useSelector(
     (state) => state.entries
   );
-  // const { name } = useSelector((state) => state.auth);
 
   // states managed
   const [animeList, setAnimeList] = useState([]);
@@ -109,10 +108,6 @@ function AnimeEntries() {
   return (
     <section style={{ height: '100vh' }}>
       <EntriesForm search={search} setSearch={setSearch} />
-
-      {/* {!thereAreData && (
-        <Alert alertType={ALERT.IS_LOGIN} userName={name} />
-      )} */}
 
       {isLoading && <LoadingData />}
 

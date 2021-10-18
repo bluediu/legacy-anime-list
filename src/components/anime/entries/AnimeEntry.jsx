@@ -34,7 +34,8 @@ function AnimeEntry({ id, title, completed, date, img }) {
   };
 
   // delete an anime by id
-  const handleDelete = () => dispatch(startDeleteEntry(id));
+  const handleDelete = () =>
+    dispatch(startDeleteEntry(id, title));
 
   return (
     <article className="list-container animate__animated animate__fadeIn">

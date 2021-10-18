@@ -3,6 +3,7 @@ import { db } from '../../services/firebase-config';
 import { loadEntries } from '../../helpers/loadEntries';
 
 import { types } from '../types/types';
+import { showAlertOptions } from '../../helpers/showAlertOptions';
 
 /* ----- GET SECTION ----- */
 
@@ -120,17 +121,26 @@ export const updateEntryById = (id, entry) => ({
  * action for delete an entry data from firebase and remove it of the redux store
  * @param -> entry: object
  * */
-export const startDeleteEntry = (id) => {
+export const startDeleteEntry = (id, title) => {
   return async (dispatch, getState) => {
     // get the current id of the active user
     const uid = getState().auth.uid;
 
-    // save in firestore
-    await db.doc(`${uid}/animelist/entries/${id}`).delete();
+    const options = {
+      title: '🗑️',
+      text: `¿Quieres borrar ${title}?`,
+      icon: 'question',
+    };
 
-    dispatch(deleteEntryById(id));
+    const action = await showAlertOptions(options);
 
-    Swal.fire('🗑️', 'El anime se elimino', 'error');
+    if (action) {
+      // save in firestore
+      await db.doc(`${uid}/animelist/entries/${id}`).delete();
+
+      dispatch(deleteEntryById(id));
+      console.log('borrado');
+    }
   };
 };
 
