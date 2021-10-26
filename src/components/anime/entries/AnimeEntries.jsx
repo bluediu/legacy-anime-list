@@ -64,6 +64,8 @@ function AnimeEntries() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [entries]);
 
+  // TODO: REFACTORIZAR FUNCIONALIDAD PARA EL FILTRADO DE ANIMES
+
   // get all animes when the form search not find result for
   // the search value
   const showAllAnime = () => {
