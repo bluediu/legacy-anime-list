@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types'; // ES6
 
+/* components and lib */
+import Confetti from 'react-confetti';
 import { BsTrash } from 'react-icons/bs';
-import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
 
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { useWindowSize } from 'react-use';
+import { useTimeOut } from '../../../hooks/useTimeOut';
+
+/* redux actions */
 import {
   activeEntry,
   startDeleteEntry,
@@ -17,7 +23,23 @@ function AnimeEntry({ id, title, completed, date, img }) {
   const [checked, setChecked] = useState(false);
   let history = useHistory();
 
-  const handleChecked = (e) => setChecked(e.target.checked);
+  /* get the current windows height and width */
+  const { width, height } = useWindowSize();
+
+  const [showConfetti, setShowConfetti] = useState(false);
+
+  // get value from custom hook
+  const { showValue } = useTimeOut(
+    showConfetti,
+    setShowConfetti
+  );
+
+  const handleChecked = (e) => {
+    if (e.target.checked) {
+      setShowConfetti(true);
+    }
+    setChecked(e.target.checked);
+  };
 
   const handleUpdate = () => {
     let updateNote = { id, title, date, completed: !checked };
@@ -38,30 +60,41 @@ function AnimeEntry({ id, title, completed, date, img }) {
     dispatch(startDeleteEntry(id, title));
 
   return (
-    <article className="list-container animate__animated animate__fadeIn">
-      <div className="cheking">
-        <input
-          className="form-check-input custom-check"
-          type="checkbox"
-          name="completed"
-          onChange={handleChecked}
-          onClick={handleUpdate}
-          checked={checked}
+    <>
+      {showValue && (
+        <Confetti
+          width={width}
+          height={height}
+          numberOfPieces={200}
+          recycle={false}
         />
-      </div>
+      )}
 
-      <div
-        className="list-title"
-        onClick={handleSelect}
-        style={{ cursor: 'pointer' }}
-      >
-        {title}
-      </div>
+      <article className="list-container animate__animated animate__fadeIn">
+        <div className="cheking">
+          <input
+            className="form-check-input custom-check"
+            type="checkbox"
+            name="completed"
+            onChange={handleChecked}
+            onClick={handleUpdate}
+            checked={checked}
+          />
+        </div>
 
-      <div className="list-btn" onClick={handleDelete}>
-        <BsTrash />
-      </div>
-    </article>
+        <div
+          className="list-title"
+          onClick={handleSelect}
+          style={{ cursor: 'pointer' }}
+        >
+          {title}
+        </div>
+
+        <div className="list-btn" onClick={handleDelete}>
+          <BsTrash />
+        </div>
+      </article>
+    </>
   );
 }
 

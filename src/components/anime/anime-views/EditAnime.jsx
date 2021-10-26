@@ -23,6 +23,11 @@ import Clipboard from '../../utils/Clipboard';
 import EditAnimeForm from '../forms/EditAnimeForm';
 import AnimeDate from '../ui-views/AnimeDate';
 import AnimeCheckedInput from '../ui-actions/AnimeCheckedInput';
+import Confetti from 'react-confetti';
+
+import { useWindowSize } from 'react-use';
+
+import { useTimeOut } from '../../../hooks/useTimeOut';
 
 dayjs.locale('es');
 
@@ -31,6 +36,17 @@ function EditAnime() {
   const { active: anime } = useSelector(
     (state) => state.entries
   );
+
+  /* get the window size */
+  const { width, height } = useWindowSize();
+  const [showConfetti, setShowConfetti] = useState(false);
+
+  // get value from custom hook when "showConfetti" changed
+  const { showValue } = useTimeOut(
+    showConfetti,
+    setShowConfetti
+  );
+
   const { form, handleChange, reset } = useForm(anime);
 
   const [updateImg, setUpdateImg] = useState(anime?.img || '');
@@ -64,14 +80,20 @@ function EditAnime() {
     setChecked(form.completed);
   }, [form.completed]);
 
+  // catch the value of the input checkbox
+  const handleChecked = (e) => {
+    // change value when "checked" value is true
+    if (e.target.checked) {
+      setShowConfetti(true);
+    }
+    setChecked(e.target.checked);
+  };
+
   // delete a anime
   const handleDelete = () => {
     dispatch(startDeleteEntry(form.id, form.title));
     history.push('/');
   };
-
-  // catch the value of the input checkbox
-  const handleChecked = (e) => setChecked(e.target.checked);
 
   // update selected anime
   const handleUpdate = () => {
@@ -118,6 +140,15 @@ function EditAnime() {
 
   return (
     <main>
+      {showValue && (
+        <Confetti
+          width={width}
+          height={height}
+          numberOfPieces={200}
+          recycle={false}
+        />
+      )}
+
       <AnimeActionNav title="Editar" />
 
       <AnimePhoto
