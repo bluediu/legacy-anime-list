@@ -74,8 +74,8 @@ function EditAnime() {
     dispatch(activeEntry(form.id, { ...form }));
   }, [form, dispatch]);
 
-  // recibe the db value and assings the state for handle input checked,
-  // when the component is rendering
+  /* recibe the db value and assings the state for handle input checked,
+   when the component is rendering */
   useEffect(() => {
     setChecked(form.completed);
   }, [form.completed]);
