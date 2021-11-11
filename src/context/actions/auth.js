@@ -12,7 +12,8 @@ import { cleanEntriesWhenUserLogout } from './entries';
 
 /***
   action when the user log in
-  @params -> email:string, password: string  
+  @param {string} email Email of the user
+  @param {string} password Password of the user
 */
 export const startLoginWithEmailPassword = (email, password) => {
   return async (dispatch) => {
