@@ -12,11 +12,12 @@ import { cleanEntriesWhenUserLogout } from './entries';
 /* ----- AUTH SECTION ----- */
 
 /**
-  Action when the user log in
-  @Redux return a new action
-  @param {string} email Email of the user
-  @param {string} password Password of the user
-*/
+ * Function when the user log in
+ * @Redux return a new action
+ * @param {string} email Email of the user
+ * @param {string} password Password of the user
+ * @returns {Function} Function of type Auth Action
+ */
 export const startLoginWithEmailPassword = (email, password) => {
   return async (dispatch) => {
     try {
@@ -33,8 +34,9 @@ export const startLoginWithEmailPassword = (email, password) => {
 };
 
 /**
- * Action for login with Google Sign In
- *  @Redux return a new action
+ * Function for login with Google Sign In
+ * @Redux {Action}
+ * @returns {Function} Function of type Auth Action
  */
 export const startloginWithGoogle = () => {
   return async (dispatch) => {
@@ -53,11 +55,12 @@ export const startloginWithGoogle = () => {
 };
 
 /**
- * Register a new user in firestore
+ *  Function for register a new user in firestore
  * @param {string} email Email of the user
  * @param {string} password Password of the user
  * @param {string} name  Name of the user
- * @Redux return a new action
+ * @Redux {Action}
+ * @returns {Function} Function of type Auth Action
  */
 export const startRegisterWithEmailPasswordName = (
   email,
@@ -82,8 +85,9 @@ export const startRegisterWithEmailPasswordName = (
 /* ----- LOG OUT SECTION ----- */
 
 /**
- * Action for logout
- *  @Redux return an action
+ * Function for logout
+ * @Redux {Store}
+ * @returns {Function} Two functions of type Action
  */
 export const startLogout = () => {
   return async (dispatch) => {
@@ -95,10 +99,10 @@ export const startLogout = () => {
 };
 
 /**
-  Action for clean Redux store when the user has been log out
-  @Redux return a action
-  @return {object} Type of the action
-*/
+ * Function for clean Redux store when the user has been log out
+ * @Redux {Action}
+ * @return {object} Type of the action
+ */
 export const logout = () => ({
   type: types.authLogout,
 });
@@ -108,6 +112,7 @@ export const logout = () => ({
  * @param {string} uid Uid of the user
  * @param {string} displayName Name of the user
  * @param {string} photoURL Photo of the user
+ * @Redux {Action}
  * @returns {object} Type and Payload of the user action
  */
 export const authAction = (uid, displayName, photoURL = '') => ({
