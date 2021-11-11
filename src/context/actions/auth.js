@@ -1,3 +1,4 @@
+// @ts-check
 import {
   firebase,
   googleAuthProvider,
@@ -10,8 +11,9 @@ import { cleanEntriesWhenUserLogout } from './entries';
 
 /* ----- AUTH SECTION ----- */
 
-/***
-  action when the user log in
+/**
+  Action when the user log in
+  @Redux return a new action
   @param {string} email Email of the user
   @param {string} password Password of the user
 */
@@ -22,7 +24,7 @@ export const startLoginWithEmailPassword = (email, password) => {
         .auth()
         .signInWithEmailAndPassword(email, password);
 
-      dispatch(authAction(user.uid, user.displayName));
+      return dispatch(authAction(user.uid, user.displayName));
     } catch (err) {
       Swal.fire('Error', err.message, 'error');
       console.error(err);
@@ -30,9 +32,10 @@ export const startLoginWithEmailPassword = (email, password) => {
   };
 };
 
-/***
-  action for login with google auth
-*/
+/**
+ * Action for login with Google Sign In
+ *  @Redux return a new action
+ */
 export const startloginWithGoogle = () => {
   return async (dispatch) => {
     try {
@@ -40,7 +43,7 @@ export const startloginWithGoogle = () => {
         .auth()
         .signInWithPopup(googleAuthProvider);
 
-      dispatch(
+      return dispatch(
         authAction(user.uid, user.displayName, user.photoURL)
       );
     } catch (error) {
@@ -49,10 +52,13 @@ export const startloginWithGoogle = () => {
   };
 };
 
-/***
-  action for register a new user in firestore
-  @params -> email:string, password: string, name: string  
-*/
+/**
+ * Register a new user in firestore
+ * @param {string} email Email of the user
+ * @param {string} password Password of the user
+ * @param {string} name  Name of the user
+ * @Redux return a new action
+ */
 export const startRegisterWithEmailPasswordName = (
   email,
   password,
@@ -66,7 +72,7 @@ export const startRegisterWithEmailPasswordName = (
 
       await user.updateProfile({ displayName: name });
 
-      dispatch(authAction(user.uid, user.displayName));
+      return dispatch(authAction(user.uid, user.displayName));
     } catch (err) {
       Swal.fire('Error', err.message, 'error');
     }
@@ -75,9 +81,10 @@ export const startRegisterWithEmailPasswordName = (
 
 /* ----- LOG OUT SECTION ----- */
 
-/***
-  action for logout
-*/
+/**
+ * Action for logout
+ *  @Redux return an action
+ */
 export const startLogout = () => {
   return async (dispatch) => {
     await firebase.auth().signOut();
@@ -87,17 +94,22 @@ export const startLogout = () => {
   };
 };
 
-/***
-  reducer action for clean Redux store when the user has been log out
+/**
+  Action for clean Redux store when the user has been log out
+  @Redux return a action
+  @return {object} Type of the action
 */
 export const logout = () => ({
   type: types.authLogout,
 });
 
-/***
-  reducer action for multiple purposes 
-  @params -> uid:int, displayName: string, photoURL: string  
-*/
+/**
+ *
+ * @param {string} uid Uid of the user
+ * @param {string} displayName Name of the user
+ * @param {string} photoURL Photo of the user
+ * @returns {object} Type and Payload of the user action
+ */
 export const authAction = (uid, displayName, photoURL = '') => ({
   type: types.authAction,
   payload: {
