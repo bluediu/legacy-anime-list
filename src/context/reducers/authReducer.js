@@ -1,5 +1,11 @@
 import { types } from '../types/types';
 
+/**
+ * Auth Reducer
+ * @param {object} state State of the Reducer
+ * @param {{type, payload}} action Type or Payload of the actions
+ * @returns {object} New state
+ */
 export const authReducer = (state = {}, action) => {
   switch (action.type) {
     case types.authAction:

@@ -1,11 +1,21 @@
+// @ts-check
 import { types } from '../types/types';
 
 const initialState = {
+  /** @type {Array<object>} */
   entries: [],
+  /** @type {object | null} */
   active: null,
+  /** @type {boolean} */
   isLoading: true,
 };
 
+/**
+ * Entries Reducer
+ * @param {object} state State of the Reducer
+ * @param {{type, payload}} action Type or Payload of the actions
+ * @returns {object} New state
+ */
 export const entriesReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.entryActive:

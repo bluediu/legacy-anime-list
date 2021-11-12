@@ -16,6 +16,7 @@ import { cleanEntriesWhenUserLogout } from './entries';
  * @Redux return a new action
  * @param {string} email Email of the user
  * @param {string} password Password of the user
+ * @Redux {Dispatch}
  * @returns {Function} Function of type Auth Action
  */
 export const startLoginWithEmailPassword = (email, password) => {
@@ -35,7 +36,7 @@ export const startLoginWithEmailPassword = (email, password) => {
 
 /**
  * Function for login with Google Sign In
- * @Redux {Action}
+ * @Redux {Dispatch}
  * @returns {Function} Function of type Auth Action
  */
 export const startloginWithGoogle = () => {
@@ -59,7 +60,7 @@ export const startloginWithGoogle = () => {
  * @param {string} email Email of the user
  * @param {string} password Password of the user
  * @param {string} name  Name of the user
- * @Redux {Action}
+ * @Redux {Dispatch}
  * @returns {Function} Function of type Auth Action
  */
 export const startRegisterWithEmailPasswordName = (
@@ -86,8 +87,8 @@ export const startRegisterWithEmailPasswordName = (
 
 /**
  * Function for logout
- * @Redux {Store}
- * @returns {Function} Two functions of type Action
+ * @Redux {Dispatch}
+ * @returns {Function} Two functions of type Auth Action
  */
 export const startLogout = () => {
   return async (dispatch) => {
@@ -99,7 +100,7 @@ export const startLogout = () => {
 };
 
 /**
- * Function for clean Redux store when the user has been log out
+ * Action for clean Redux store when the user has been log out
  * @Redux {Action}
  * @return {object} Type of the action
  */
@@ -108,12 +109,12 @@ export const logout = () => ({
 });
 
 /**
- *
+ * Action for get the user data when has been logged
  * @param {string} uid Uid of the user
  * @param {string} displayName Name of the user
  * @param {string} photoURL Photo of the user
  * @Redux {Action}
- * @returns {object} Type and Payload of the user action
+ * @returns {object} Type and Payload
  */
 export const authAction = (uid, displayName, photoURL = '') => ({
   type: types.authAction,

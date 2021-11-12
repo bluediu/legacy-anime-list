@@ -8,22 +8,26 @@ import { showAlertOptions } from '../../helpers/showAlertOptions';
 /* ----- GET SECTION ----- */
 
 /**
- * action for get data when the user has been logged from firestore
- * @param -> newNote: object
- * */
+ * Function for get data when the user has been logged from firestore
+ * @param {string} uid
+ * @Redux {Dispatch}
+ * @return {Function }Two Functions of type Loading & Entries (Action)
+ */
 export const startGetEntriesWhenUserLogged = (uid) => {
   return async (dispatch) => {
     const entries = await loadEntries(uid);
-    dispatch(startIsLoading(false));
 
+    dispatch(startIsLoading(false));
     dispatch(setEntries(entries));
   };
 };
 
 /**
- * action for set data in the store
- * @param -> entry: object
- * */
+ * Function for get the user data
+ * @param {object} entry Data of the entry
+ * @Redux {Action}
+ * @return {object} Type of the action
+ */
 export const setEntries = (entry) => ({
   type: types.entryLoad,
   payload: entry,
@@ -32,9 +36,11 @@ export const setEntries = (entry) => ({
 /* ----- CREATE SECTION ----- */
 
 /**
- * action for get data and put it in the redux store
- * @param -> newNote: object
- * */
+ * Function for get data and put it in the store
+ * @param {object} newEntry Data of a new entry
+ * @Redux {Dispatch}
+ * @returns {Function} Function of Type Action Entry
+ */
 export const startNewEntry = (newEntry) => {
   return async (dispatch, getState) => {
     // get the current id of the active user
@@ -55,10 +61,13 @@ export const startNewEntry = (newEntry) => {
   };
 };
 
-/***
-  reducer action for add new entry
-  @params -> id:number, entry: object  
-*/
+/**
+ * Action for create a new entry
+ * @param {string} id Id of the User
+ * @param {object} entry Data of the Entry
+ * @Redux {Action}
+ * @return {object} Type and Payload of the Entry Action
+ */
 export const addNewEntry = (id, entry) => ({
   type: types.entryAddNew,
   payload: {
@@ -68,10 +77,13 @@ export const addNewEntry = (id, entry) => ({
 });
 
 /* ----- UPDATE SECTION ----- */
+
 /**
- * action for update data from firebase and update it in the redux store
- * @param -> entry: object
- * */
+ * Function for update the data from firebase and update it in the Store
+ * @param {object} entry
+ * @Redux {Dispatch}
+ * @return {Function} Function of type Entry Action
+ */
 export const startUpdateEntry = (entry) => {
   return async (dispatch, getState) => {
     const uid = getState().auth.uid;
@@ -100,10 +112,13 @@ export const startUpdateEntry = (entry) => {
   };
 };
 
-/***
-  reducer action for update an entry
-  @params -> id:number, entry: object  
-*/
+/**
+ * Action for update an entry
+ * @param {string} id Id of the user
+ * @param {object} entry Data of the entry
+ * @Redux {Action}
+ * @returns {object} Type & Payload of the Entry
+ */
 export const updateEntryById = (id, entry) => ({
   type: types.entryUpdated,
   payload: {
@@ -118,9 +133,12 @@ export const updateEntryById = (id, entry) => ({
 /* ----- DELETE SECTION ----- */
 
 /**
- * action for delete an entry data from firebase and remove it of the redux store
- * @param -> entry: object
- * */
+ * Function for delete an entry by id
+ * @param {string} id Id of the entry
+ * @param {string} title Title of the entry
+ * @Redux {Dispatch}
+ * @returns {Function} Function of type Entry Action
+ */
 export const startDeleteEntry = (id, title) => {
   return async (dispatch, getState) => {
     // get the current id of the active user
@@ -139,15 +157,16 @@ export const startDeleteEntry = (id, title) => {
       await db.doc(`${uid}/animelist/entries/${id}`).delete();
 
       dispatch(deleteEntryById(id));
-      console.log('borrado');
     }
   };
 };
 
-/***
-  reducer action for update an entry
-  @params -> id:number, entry: object  
-*/
+/**
+ * Action for delete an entry by id
+ * @param {string} id Id of the entry
+ * @Redux {Action}
+ * @return {object} Type and Payload
+ */
 export const deleteEntryById = (id) => ({
   type: types.entryDelete,
   payload: id,
@@ -156,25 +175,31 @@ export const deleteEntryById = (id) => ({
 /* ----- ENTRIES ACTION SECTION ----- */
 
 /**
- *
- * @param {*} state: boolean
+ * Change the state to true or false
+ * @param {boolean} state State
+ * @Redux {Action}
+ * @return {object} Type and Payload
  */
 const startIsLoading = (state = true) => ({
   type: types.entryIsLoading,
   payload: state,
 });
 
-/*
-  action for clean reducer when user logout
-*/
+/**
+ * Action for clean reducer when user logout
+ * @Redux {Action}
+ * @return {object} Type
+ */
 export const cleanEntriesWhenUserLogout = () => ({
   type: types.entryLogoutCleaning,
 });
 
-/***
-  reducer action for set the active entry in the store
-  @params -> id:number, entry: object  
-*/
+/**
+ * Action for set the active entry in the store
+ * @param {string} id Id of the entry
+ * @param {object} entry Data of the entry
+ * @return {object} Type & Payload
+ */
 export const activeEntry = (id, entry) => ({
   type: types.entryActive,
   payload: {
