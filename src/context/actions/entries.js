@@ -1,3 +1,4 @@
+// @ts-check
 import Swal from 'sweetalert2';
 import { db } from '../../services/firebase-config';
 import { loadEntries } from '../../helpers/loadEntries';

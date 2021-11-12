@@ -1,3 +1,4 @@
+// @ts-check
 import { types } from '../types/types';
 
 /**

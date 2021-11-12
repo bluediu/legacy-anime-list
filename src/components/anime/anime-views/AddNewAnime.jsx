@@ -40,7 +40,7 @@ function AddNewAnime() {
   };
 
   return (
-    <div>
+    <>
       <AnimeActionNav title="Nuevo anime" />
 
       <AnimePhoto
@@ -74,7 +74,7 @@ function AddNewAnime() {
       >
         <GoCheck />
       </Link>
-    </div>
+    </>
   );
 }
 
