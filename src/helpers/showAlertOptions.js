@@ -1,10 +1,9 @@
 import Swal from 'sweetalert2';
 
 /**
- *
- * @param {*} options : object
- * @returns boolean
- * return an alert to confirm or cancel an action
+ * Function that will show an alert with option
+ * @param {{title, text, icon}} options
+ * @return {Promise} Return an alert to confirm or cancel an action
  */
 export const showAlertOptions = async (options) => {
   const { title, text, icon } = options;
