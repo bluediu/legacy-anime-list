@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 /* components */
 import AnimeActionNav from '../navbar/AnimeActionNav';
 import AddNewAnimeForm from '../forms/AddNewAnimeForm';
-import AnimePhoto from '../ui-actions/AnimePhoto';
+import AnimePhoto from '../ui-actions/AnimePhoto/AnimePhoto';
 import { GoCheck } from 'react-icons/go';
 
 const initialState = {

@@ -1,10 +1,12 @@
 import { memo } from 'react';
 import PropTypes from 'prop-types'; // ES6
+import './AnimePhoto.css';
 
 /* libs */
-import IMG_NOT_FOUND from '../../../assets/img/no-image.jpg';
+import IMG_NOT_FOUND from '../../../../assets/img/no-image.jpg';
 import { FiUpload } from 'react-icons/fi';
-import { imageUpload } from '../../../helpers/image-upload';
+import { imageUpload } from '../../../../helpers/image-upload';
+import { FiEdit2 } from 'react-icons/fi';
 
 function AnimePhoto({
   image = '',
@@ -12,6 +14,7 @@ function AnimePhoto({
   typeAction,
   setAddImage,
   setUpdateImg,
+  openFullScreenImg,
 }) {
   /* styles */
   const imageContainerStyled = {
@@ -33,16 +36,25 @@ function AnimePhoto({
   return (
     <div style={imageContainerStyled}>
       {image ? (
-        <img
-          onClick={handleUploadImg}
-          src={image}
-          alt={title}
-          loading="eager"
-          onError={(e) => {
-            e.target.src = IMG_NOT_FOUND;
-          }}
-          className="rounded img-fluid mt-2 animate__animated animate__fadeIn"
-        />
+        <article className="anime-photo-container">
+          <button
+            className="anime-photo-btn"
+            onClick={handleUploadImg}
+          >
+            <FiEdit2 />
+          </button>
+
+          <img
+            onClick={openFullScreenImg}
+            src={image}
+            alt={title}
+            loading="eager"
+            onError={(e) => {
+              e.target.src = IMG_NOT_FOUND;
+            }}
+            className="rounded img-fluid mt-2 animate__animated animate__fadeIn"
+          />
+        </article>
       ) : (
         <figure
           className="upload-img"
@@ -69,6 +81,7 @@ AnimePhoto.propTypes = {
   typeAction: PropTypes.string.isRequired,
   setAddImage: PropTypes.func,
   setUpdateImg: PropTypes.func,
+  openFullScreenImg: PropTypes.func,
 };
 
 export default memo(AnimePhoto);
