@@ -154,15 +154,13 @@ function EditAnime() {
       )}
 
       <Modal isOpen={isOpenModal} closeModal={closeModal}>
-        <section>
-          <img
-            src={updateImg}
-            alt={form.title}
-            loading="eager"
-            className="img-fluid img-modal"
-          />
-          <p className="title-modal">{form.title}</p>
-        </section>
+        <img
+          src={updateImg}
+          alt={form.title}
+          loading="eager"
+          className="modal-image"
+        />
+        <p className="title-modal">{form.title}</p>
       </Modal>
 
       <AnimeActionNav title="Editar" />
