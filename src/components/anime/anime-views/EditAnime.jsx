@@ -17,7 +17,7 @@ import { useForm } from '../../../hooks/useForm';
 /* components and lib */
 import AnimeActionNav from '../navbar/AnimeActionNav';
 import AnimeDeleteEntryButton from '../ui-actions/AnimeDeleteEntryButton';
-import AnimePhoto from '../ui-actions/AnimePhoto';
+import AnimePhoto from '../ui-actions/AnimePhoto/AnimePhoto';
 import AnimeUpdateEntryButton from '../ui-actions/AnimeUpdateEntryButton';
 import Clipboard from '../../utils/Clipboard';
 import EditAnimeForm from '../forms/EditAnimeForm';
@@ -28,6 +28,8 @@ import Confetti from 'react-confetti';
 import { useWindowSize } from 'react-use';
 
 import { useTimeOut } from '../../../hooks/useTimeOut';
+import Modal from '../../utils/Modal/Modal';
+import { useModal } from '../../../hooks/useModal';
 
 dayjs.locale('es');
 
@@ -36,6 +38,8 @@ function EditAnime() {
   const { active: anime } = useSelector(
     (state) => state.entries
   );
+
+  const [isOpenModal, openModal, closeModal] = useModal(false);
 
   /* get the window size */
   const { width, height } = useWindowSize();
@@ -149,6 +153,18 @@ function EditAnime() {
         />
       )}
 
+      <Modal isOpen={isOpenModal} closeModal={closeModal}>
+        <section>
+          <img
+            src={updateImg}
+            alt={form.title}
+            loading="eager"
+            className="img-fluid img-modal"
+          />
+          <p className="title-modal">{form.title}</p>
+        </section>
+      </Modal>
+
       <AnimeActionNav title="Editar" />
 
       <AnimePhoto
@@ -156,6 +172,7 @@ function EditAnime() {
         title={form.title}
         setUpdateImg={setUpdateImg}
         typeAction="update"
+        openFullScreenImg={openModal}
       />
 
       <section className="container">
