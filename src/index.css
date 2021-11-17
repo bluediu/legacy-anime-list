@@ -148,7 +148,7 @@ body {
   outline: 0;
   position: fixed;
   width: 3rem;
-  z-index: 999;
+  z-index: 998;
 }
 .custom-type-edit {
   align-items: center;
@@ -403,23 +403,4 @@ body {
   .container-entries {
     max-height: 547px;
   }
-}
-
-/* WELCOME MESSAGE */
-.welcome-card {
-  background-color: rgba(2, 2, 2, 0.1);
-  border-radius: 5px;
-  font-family: inherit;
-  padding: 0.5rem;
-}
-.welcome {
-  font-size: 1.4rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-}
-
-.welcome-name {
-  font-size: 1.4rem;
-  margin-left: 6px;
-  color: #271a2c;
 }
