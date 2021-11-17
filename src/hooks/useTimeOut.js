@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 
 /**
  * change the value to false when 5 seconds pass
- * @param {*} showValue : boolean
- * @param {*} setValue : function
- * @returns boolean | true or false
+ * @param {boolean} showValue
+ * @param {function} setValue
+ * @return {object} return a new value
  */
 export const useTimeOut = (showValue, setValue) => {
   useEffect(() => {
