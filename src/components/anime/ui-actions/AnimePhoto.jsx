@@ -1,10 +1,10 @@
+import { memo } from 'react';
 import PropTypes from 'prop-types'; // ES6
 
 /* libs */
 import IMG_NOT_FOUND from '../../../assets/img/no-image.jpg';
 import { FiUpload } from 'react-icons/fi';
 import { imageUpload } from '../../../helpers/image-upload';
-import { memo } from 'react';
 
 function AnimePhoto({
   image = '',
