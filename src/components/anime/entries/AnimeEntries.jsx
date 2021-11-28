@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { searchAnimes } from '../../../helpers/showAnimes';
@@ -12,14 +12,15 @@ import EntriesForm from '../forms/EntriesForm';
 
 import LoadingData from '../../utils/Loader-data/LoadingData';
 
-const getTypeFromLS =
-  localStorage.getItem('filter-animes') ||
-  JSON.stringify({
-    type: null,
-    category: 'ALL',
-  });
-
 function AnimeEntries() {
+  // get data from localstorage
+  const getTypeFromLS =
+    localStorage.getItem('filter-animes') ||
+    JSON.stringify({
+      type: null,
+      category: 'ALL',
+    });
+
   // get all data from redux
   const { entries, isLoading } = useSelector(
     (state) => state.entries
@@ -29,30 +30,38 @@ function AnimeEntries() {
   const [animeList, setAnimeList] = useState([]);
   const [search, setSearch] = useState('');
 
-  const [type, setType] = useState(getTypeFromLS);
+  const [type, setType] = useState(null);
   const [categoryClass, setCategoryClass] = useState('ALL');
 
-  const animesSelected = (type = null, category = 'ALL') => {
-    localStorage.setItem(
-      'filter-animes',
-      JSON.stringify({ type, category })
-    );
-
-    setCategoryClass(category);
-    setType(type);
-  };
-
-  const filterAnimes = (state = null) => {
-    if (state !== null) {
-      const newItem = entries.filter(
-        (anime) => anime.completed === state
+  /* Memorize function for avoid re-rendering  */
+  const animesSelected = useCallback(
+    (type = null, category = 'ALL') => {
+      localStorage.setItem(
+        'filter-animes',
+        JSON.stringify({ type, category })
       );
 
-      return setAnimeList(newItem);
-    }
+      setCategoryClass(category);
+      setType(type);
+    },
+    []
+  );
 
-    return setAnimeList(entries);
-  };
+  /* Memorize function for avoid re-rendering  */
+  const filterAnimes = useCallback(
+    (state = null) => {
+      if (state !== null) {
+        const newItem = entries.filter(
+          (anime) => anime.completed === state
+        );
+
+        return setAnimeList(newItem);
+      }
+
+      return setAnimeList(entries);
+    },
+    [entries]
+  );
 
   // get all data for redux store and assign in the state
   useEffect(() => {
@@ -61,8 +70,7 @@ function AnimeEntries() {
     filterAnimes(type);
 
     animesSelected(type, category);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [entries]);
+  }, [entries, filterAnimes, animesSelected, getTypeFromLS]);
 
   /* filter animes  */
   const animes = searchAnimes(search.trim(), animeList);
