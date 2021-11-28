@@ -138,7 +138,6 @@ body {
   border-radius: 50%;
   border: 0;
   bottom: 2vh;
-  cursor: pointer;
   display: flex;
   font-size: 2rem;
   font-weight: bold;
@@ -155,7 +154,6 @@ body {
   border-radius: 50%;
   border: 0;
   bottom: 2vh;
-  cursor: pointer;
   display: flex;
   font-size: 2rem;
   font-weight: bold;
@@ -165,7 +163,7 @@ body {
   position: fixed;
   right: 1vw;
   width: 3rem;
-  z-index: 999;
+  z-index: 998;
 }
 
 @media only screen and (max-width: 400px) {
