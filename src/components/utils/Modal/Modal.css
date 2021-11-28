@@ -14,10 +14,7 @@
 .modal-container {
   background-color: #101010;
   border-radius: 8px;
-  max-height: 600px;
-  max-width: 480px;
-  min-height: 200px;
-  min-width: 320px;
+  width: 18rem;
   overflow-y: auto;
   position: relative;
 }
