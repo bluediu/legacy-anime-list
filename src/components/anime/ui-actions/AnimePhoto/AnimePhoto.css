@@ -2,6 +2,12 @@
   position: relative;
 }
 
+@media only screen and (max-height: 640px) {
+  .anime-photo-container {
+    margin-top: -2rem;
+  }
+}
+
 .anime-photo-btn {
   align-items: center;
   background-color: #2c3e50;
