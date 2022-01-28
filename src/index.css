@@ -84,7 +84,13 @@ body {
     max-height: 460px;
   }
 }
-
+/* 
+@media only screen and (min-width: 1024px) {
+  .container-entries {
+    max-height: 460px;
+  }
+}
+ */
 .list-container {
   align-items: center;
   border-top: 1px dashed hsl(237, 14%, 26%);
@@ -397,8 +403,18 @@ body {
   }
 }
 
-@media only screen and (min-height: 800px) {
+/* @media only screen and (min-height: 800px) {
   .container-entries {
     max-height: 547px;
+  }
+}
+ */
+@media only screen and (min-height: 900px) {
+  .container-entries {
+    max-height: 660px;
+  }
+
+  .custom-type-action {
+    bottom: 10vh;
   }
 }
