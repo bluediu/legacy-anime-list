@@ -409,7 +409,7 @@ body {
   }
 }
  */
-@media only screen and (min-height: 900px) {
+@media only screen and (min-height: 800px) {
   .container-entries {
     max-height: 660px;
   }
