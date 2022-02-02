@@ -409,7 +409,17 @@ body {
   }
 }
  */
-@media only screen and (min-height: 800px) {
+@media only screen and (min-height: 700px) {
+  .container-entries {
+    max-height: 500px;
+  }
+
+  .custom-type-action {
+    bottom: 10vh;
+  }
+}
+
+@media only screen and (min-height: 900px) {
   .container-entries {
     max-height: 660px;
   }
