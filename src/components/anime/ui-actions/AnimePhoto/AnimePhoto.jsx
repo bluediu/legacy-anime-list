@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo, useState } from 'react';
 import PropTypes from 'prop-types'; // ES6
 import './AnimePhoto.css';
 
@@ -7,15 +7,32 @@ import IMG_NOT_FOUND from '../../../../assets/img/no-image.jpg';
 import { FiUpload } from 'react-icons/fi';
 import { imageUpload } from '../../../../helpers/image-upload';
 import { FiEdit2 } from 'react-icons/fi';
+import { useEffect } from 'react';
+import { useCallback } from 'react';
 
 function AnimePhoto({
-  image = '',
+  image,
   title,
   typeAction,
   setAddImage,
   setUpdateImg,
   openFullScreenImg,
 }) {
+  const [imgSrc, setSrc] = useState(IMG_NOT_FOUND || image);
+
+  const onLoad = useCallback(() => {
+    setSrc(image);
+  }, [image]);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = image;
+    img.addEventListener('load', onLoad);
+    return () => {
+      img.removeEventListener('load', onLoad);
+    };
+  }, [image, onLoad]);
+
   /* styles */
   const imageContainerStyled = {
     width: '180px',
@@ -46,7 +63,7 @@ function AnimePhoto({
 
           <img
             onClick={openFullScreenImg}
-            src={image}
+            src={imgSrc}
             alt={title}
             loading="eager"
             onError={(e) => {
