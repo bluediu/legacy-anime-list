@@ -19,11 +19,11 @@ body {
 }
 
 .main-color-list {
-  background-color: #9921e8;
+  background-color: #7f53ac;
   background-image: linear-gradient(
     315deg,
-    #9921e8 0%,
-    #5f72be 74%
+    #7f53ac 0%,
+    #647dee 74%
   );
 }
 
@@ -107,6 +107,11 @@ body {
 .list-title {
   color: white;
   font-family: 'Montserrat', sans-serif;
+  text-overflow: ellipsis;
+  /* max-width: 17vw; */
+  max-width: 14rem;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .list-btn {
