@@ -4,6 +4,7 @@ import './AnimePhoto.css';
 
 /* libs */
 import IMG_NOT_FOUND from '../../../../assets/img/no-image.jpg';
+import LOADING_IMG from '../../../../assets/img/loading-img.png';
 import { FiUpload } from 'react-icons/fi';
 import { imageUpload } from '../../../../helpers/image-upload';
 import { FiEdit2 } from 'react-icons/fi';
@@ -18,7 +19,7 @@ function AnimePhoto({
   setUpdateImg,
   openFullScreenImg,
 }) {
-  const [imgSrc, setSrc] = useState(IMG_NOT_FOUND || image);
+  const [imgSrc, setSrc] = useState(LOADING_IMG || image);
 
   const onLoad = useCallback(() => {
     setSrc(image);
@@ -64,8 +65,13 @@ function AnimePhoto({
           <img
             onClick={openFullScreenImg}
             src={imgSrc}
+            style={{
+              width: '100%',
+              height: '270px',
+              objectFit: 'cover',
+            }}
             alt={title}
-            loading="eager"
+            loading="lazy"
             onError={(e) => {
               e.target.src = IMG_NOT_FOUND;
             }}
