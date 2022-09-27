@@ -147,7 +147,7 @@ export const startDeleteEntry = (id, title) => {
 
     const options = {
       title: '🗑️',
-      text: `¿Quieres borrar ${title}?`,
+      text: `¿Quieres borrar "${title}"?`,
       icon: 'question',
     };
 
