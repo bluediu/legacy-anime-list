@@ -18,7 +18,7 @@ function AnimeNavbar() {
     <nav className="navbar navbar-expand-lg nav-tran">
       <section className="container-fluid">
         <div>
-          <h4 className="text-center mt-1">Anime List</h4>
+          <h4 className="text-center mt-1">AnimeList</h4>
         </div>
 
         <div className="acount-info d-flex flex-row justify-content-center align-items-center">

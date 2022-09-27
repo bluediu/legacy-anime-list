@@ -14,7 +14,7 @@ function EntriesForm({ search, setSearch }) {
         style={{ marginTop: '23px' }}
         type="search"
         className="custom-input"
-        placeholder="🔎 Bucar un Anime"
+        placeholder="🔎 Bucar un Anime..."
         autoComplete="off"
         name="search"
         value={search}

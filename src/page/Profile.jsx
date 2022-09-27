@@ -46,7 +46,7 @@ function Profile() {
               </div>
 
               <div className="col profile-card">
-                <p>Activos: </p>
+                <p>Pendientes: </p>
                 <span>{actives.length}</span>
               </div>
             </div>

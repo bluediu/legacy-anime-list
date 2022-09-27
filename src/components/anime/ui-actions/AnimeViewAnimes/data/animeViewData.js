@@ -1,20 +1,20 @@
 export const animeViewData = [
   {
     id: 1,
-    title: 'Todas',
+    title: 'Todos',
     class: 'view-note-active',
     category: 'ALL',
   },
   {
     id: 2,
-    title: 'Activas',
+    title: 'Pendientes',
     class: 'view-note-active',
     category: 'PENDING',
     state: false,
   },
   {
     id: 3,
-    title: 'Completadas',
+    title: 'Completados',
     class: 'view-note-active',
     state: true,
     category: 'COMPLETED',
