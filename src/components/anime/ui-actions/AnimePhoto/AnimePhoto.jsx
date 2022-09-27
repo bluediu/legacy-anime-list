@@ -4,7 +4,7 @@ import './AnimePhoto.css';
 
 /* libs */
 import IMG_NOT_FOUND from '../../../../assets/img/no-image.jpg';
-import LOADING_IMG from '../../../../assets/img/loading-img.png';
+import LOADING_IMG from '../../../../assets/img/no-image.jpg';
 import { FiUpload } from 'react-icons/fi';
 import { imageUpload } from '../../../../helpers/image-upload';
 import { FiEdit2 } from 'react-icons/fi';
