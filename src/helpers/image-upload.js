@@ -4,7 +4,6 @@ export const imageUpload = (
   { title, image },
   setImageAction
 ) => {
-  console.log(setImageAction);
   Swal.fire({
     title,
     input: 'text',
