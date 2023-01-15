@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -19,33 +19,37 @@ const initialForm = {
 };
 
 function LoginScreen() {
+  const [ canSubmit, setCanSubmit ] = useState(false);
   const { form, errors, handleChange, handleBlur } = useForm(
     initialForm,
     validationsFormLogin
   );
 
   const dispatch = useDispatch();
+  
+  useEffect(() => {
+    if (!!form.email.length && !!form.password.length)
+      setCanSubmit(true);
+  }, [form]);
 
   const handleLogin = (e) => {
     e.preventDefault();
-
-    if (!isValidFormData(errors)) {
-      dispatch(
-        startLoginWithEmailPassword(form.email, form.password)
-      );
-    }
+    if (canSubmit)
+      dispatch(startLoginWithEmailPassword(form.email, form.password));
   };
 
   useEffect(() => {
     document.title = `AnimeList- Entrar o registrarse`;
   }, []);
 
+
+
   const handleGoogleLogin = () => {
     dispatch(startloginWithGoogle());
   };
 
   const isValidFormData = ({ email, password }) =>
-    !email && !password ? false : true;
+    !(!email && !password);
 
   return (
     <div>
@@ -64,13 +68,13 @@ function LoginScreen() {
           </div>
 
           <div className="social-text">
-            <span>Sign in with google</span>
+            <span>Iniciar con una cuenta de Google</span>
           </div>
         </div>
 
         <div className="form-group mb-3">
           <label htmlFor="email" className="form-label">
-            Email
+            Correo electrónico
           </label>
           <input
             type="text"
@@ -78,7 +82,6 @@ function LoginScreen() {
               errors.email && 'is-invalid'
             }`}
             id="email"
-            placeholder="Escribe tu email..."
             onChange={handleChange}
             onBlur={handleBlur}
             value={form.email}
@@ -102,7 +105,6 @@ function LoginScreen() {
               errors.password && 'is-invalid'
             }`}
             id="password"
-            placeholder="Escribe tu Contraseña..."
             onChange={handleChange}
             onBlur={handleBlur}
             value={form.password}
