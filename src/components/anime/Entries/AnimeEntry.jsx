@@ -8,7 +8,7 @@ import { BsTrash } from 'react-icons/bs';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useWindowSize } from 'react-use';
-import { useTimeOut } from '../../../hooks/useTimeOut';
+import { useTimeOut } from '../../../hooks/';
 
 /* redux actions */
 import {

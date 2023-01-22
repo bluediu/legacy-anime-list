@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useForm } from '../../../hooks/useForm';
+import { useForm } from '../../../hooks/';
 import { useDispatch } from 'react-redux';
 
 /* components and libs */

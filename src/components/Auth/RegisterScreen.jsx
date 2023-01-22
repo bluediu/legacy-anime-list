@@ -7,7 +7,7 @@ import { startRegisterWithEmailPasswordName } from '../../context/actions/auth';
 /* components, helpers* and hooks */
 import {AuthButton} from '../Utils/';
 import { validationsFormRegister } from '../../helpers/validationsForm';
-import { useForm } from '../../hooks/useForm';
+import { useForm } from '../../hooks/';
 
 const initialForm = {
   name: '',

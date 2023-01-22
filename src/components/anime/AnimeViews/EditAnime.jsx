@@ -12,7 +12,7 @@ import {
 } from '../../../context/actions/entries';
 
 import { useHistory } from 'react-router-dom';
-import { useForm } from '../../../hooks/useForm';
+import { useForm, useModal, useTimeOut } from '../../../hooks/';
 
 /* components and lib */
 import { AnimeActionNav } from '../Navbar';
@@ -23,9 +23,7 @@ import Confetti from 'react-confetti';
 
 import { useWindowSize } from 'react-use';
 
-import { useTimeOut } from '../../../hooks/useTimeOut';
 import {Modal} from '../../Utils/';
-import { useModal } from '../../../hooks/useModal';
 
 dayjs.locale('es');
 

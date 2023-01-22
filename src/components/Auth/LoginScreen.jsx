@@ -11,7 +11,7 @@ import {
 import {AuthButton} from '../Utils/';
 import { FaGoogle } from 'react-icons/fa';
 import { validationsFormLogin } from '../../helpers/validationsForm';
-import { useForm } from '../../hooks/useForm';
+import { useForm } from '../../hooks/';
 
 const initialForm = {
   email: '',
