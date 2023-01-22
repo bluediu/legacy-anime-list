@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, {useEffect, useState} from 'react';
+import {useDispatch} from 'react-redux';
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,24 +9,21 @@ import {
 /* Components */
 import AuthRouter from './AuthRouter';
 import AnimePage from '../page/AnimePage';
-import Error404 from '../components/utils/Error404';
-import Loader from '../components/utils/Loader/Loader';
+import {Error404, Loader} from '../components/Utils/';
 import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivateRoute';
 
-import AnimeActions from '../components/anime/navbar/AnimeActions';
-import AddNewAnime from '../components/anime/anime-views/AddNewAnime';
-import EditAnime from '../components/anime/anime-views/EditAnime';
+import {AnimeActions} from '../components/anime/Navbar/';
+import {AddNewAnime, EditAnime} from '../components/anime/AnimeViews';
 import Profile from '../page/Profile';
 
 // services and others
-import { authAction } from '../context/actions/auth';
-import { firebase } from '../services/firebase-config';
-import { startGetEntriesWhenUserLogged } from '../context/actions/entries';
+import {authAction, startGetEntriesWhenUserLogged} from '../context/';
+import {firebase} from '../services/firebase-config';
 
 function AppRouter() {
   const dispatch = useDispatch();
-  const [cheking, setCheking] = useState(true);
+  const [checking, setChecking] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -39,11 +36,11 @@ function AppRouter() {
         dispatch(startGetEntriesWhenUserLogged(user.uid));
       } else setIsLoggedIn(false);
 
-      setCheking(false);
+      setChecking(false);
     });
-  }, [dispatch, setCheking]);
+  }, [dispatch, setChecking]);
 
-  if (cheking) return <Loader />;
+  if (checking) return <Loader/>;
 
   return (
     <Router>
@@ -68,7 +65,7 @@ function AppRouter() {
             isAuthenticated={isLoggedIn}
           >
             <AnimeActions>
-              <AddNewAnime />
+              <AddNewAnime/>
             </AnimeActions>
           </PrivateRoute>
 
@@ -78,7 +75,7 @@ function AppRouter() {
             isAuthenticated={isLoggedIn}
           >
             <AnimeActions>
-              <EditAnime />
+              <EditAnime/>
             </AnimeActions>
           </PrivateRoute>
 
@@ -89,7 +86,7 @@ function AppRouter() {
             component={Profile}
           />
 
-          <Route path="*" component={Error404} />
+          <Route path="*" component={Error404}/>
         </Switch>
       </div>
     </Router>

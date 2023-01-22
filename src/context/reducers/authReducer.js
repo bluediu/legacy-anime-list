@@ -1,5 +1,5 @@
 // @ts-check
-import { types } from '../types/types';
+import { types } from '../types/';
 
 /**
  * Auth Reducer

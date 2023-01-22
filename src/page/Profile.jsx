@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import AnimeActionNav from '../components/anime/navbar/AnimeActionNav';
+import { AnimeActionNav } from '../components/anime/Navbar/';
 import './Profile.css';
 
 function Profile() {

@@ -4,7 +4,7 @@ import {
 } from '../../services/firebase-config';
 
 import Swal from 'sweetalert2';
-import { types } from '../types/types';
+import { types } from '../types/';
 
 import { cleanEntriesWhenUserLogout } from './entries';
 
@@ -27,7 +27,8 @@ export const startLoginWithEmailPassword = (email, password) => {
 
       return dispatch(authAction(user.uid, user.displayName));
     } catch (err) {
-      Swal.fire('Error', err.message, 'error');
+      const msg = `Usuario o contraseña invalido o es posible que el usuario haya sido eliminado.`;
+      await Swal.fire('Error', msg, 'error');
       console.error(err);
     }
   };

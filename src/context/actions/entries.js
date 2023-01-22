@@ -1,10 +1,9 @@
 // @ts-check
 import Swal from 'sweetalert2';
 import { db } from '../../services/firebase-config';
-import { loadEntries } from '../../helpers/loadEntries';
 
-import { types } from '../types/types';
-import { showAlertOptions } from '../../helpers/showAlertOptions';
+import { types } from '../types/';
+import { showAlertOptions, loadEntries } from '../../helpers/';
 
 /* ----- GET SECTION ----- */
 
