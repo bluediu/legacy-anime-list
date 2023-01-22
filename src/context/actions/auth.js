@@ -4,7 +4,7 @@ import {
 } from '../../services/firebase-config';
 
 import Swal from 'sweetalert2';
-import { types } from '../types/types';
+import { types } from '../types/';
 
 import { cleanEntriesWhenUserLogout } from './entries';
 

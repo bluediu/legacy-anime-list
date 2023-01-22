@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { searchAnimes } from '../../../helpers/showAnimes';
+import { searchAnimes } from '../../../helpers/';
 
 /* components and lib */
 import AnimeEntry from './AnimeEntry';

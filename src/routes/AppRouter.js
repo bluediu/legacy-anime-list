@@ -18,13 +18,12 @@ import {AddNewAnime, EditAnime} from '../components/anime/AnimeViews';
 import Profile from '../page/Profile';
 
 // services and others
-import {authAction} from '../context/actions/auth';
+import {authAction, startGetEntriesWhenUserLogged} from '../context/';
 import {firebase} from '../services/firebase-config';
-import {startGetEntriesWhenUserLogged} from '../context/actions/entries';
 
 function AppRouter() {
   const dispatch = useDispatch();
-  const [cheking, setCheking] = useState(true);
+  const [checking, setChecking] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -37,11 +36,11 @@ function AppRouter() {
         dispatch(startGetEntriesWhenUserLogged(user.uid));
       } else setIsLoggedIn(false);
 
-      setCheking(false);
+      setChecking(false);
     });
-  }, [dispatch, setCheking]);
+  }, [dispatch, setChecking]);
 
-  if (cheking) return <Loader/>;
+  if (checking) return <Loader/>;
 
   return (
     <Router>

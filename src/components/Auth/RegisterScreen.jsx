@@ -2,11 +2,11 @@ import React, {useEffect, useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { startRegisterWithEmailPasswordName } from '../../context/actions/auth';
+import { startRegisterWithEmailPasswordName } from '../../context/';
 
 /* components, helpers* and hooks */
 import {AuthButton} from '../Utils/';
-import { validationsFormRegister } from '../../helpers/validationsForm';
+import { validationsFormRegister } from '../../helpers/';
 import { useForm } from '../../hooks/';
 
 const initialForm = {

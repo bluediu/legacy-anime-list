@@ -9,7 +9,7 @@ import {
   activeEntry,
   startDeleteEntry,
   startUpdateEntry,
-} from '../../../context/actions/entries';
+} from '../../../context';
 
 import { useHistory } from 'react-router-dom';
 import { useForm, useModal, useTimeOut } from '../../../hooks/';

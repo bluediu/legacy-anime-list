@@ -6,7 +6,7 @@ import './AnimePhoto.css';
 import IMG_NOT_FOUND from '../../../../assets/img/no-image.jpg';
 import LOADING_IMG from '../../../../assets/img/no-image.jpg';
 import { FiUpload } from 'react-icons/fi';
-import { imageUpload } from '../../../../helpers/image-upload';
+import { imageUpload } from '../../../../helpers/';
 import { FiEdit2 } from 'react-icons/fi';
 import { useEffect } from 'react';
 import { useCallback } from 'react';

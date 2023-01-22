@@ -3,7 +3,7 @@ import { useForm } from '../../../hooks/';
 import { useDispatch } from 'react-redux';
 
 /* components and libs */
-import { startNewEntry } from '../../../context/actions/entries';
+import { startNewEntry } from '../../../context/';
 import { Link } from 'react-router-dom';
 
 /* components */

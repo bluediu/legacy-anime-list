@@ -15,7 +15,7 @@ import {
   activeEntry,
   startDeleteEntry,
   startUpdateEntry,
-} from '../../../context/actions/entries';
+} from '../../../context/';
 
 function AnimeEntry({ id, title, completed, date, img }) {
   const dispatch = useDispatch();

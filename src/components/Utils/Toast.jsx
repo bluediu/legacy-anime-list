@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { startLogout } from '../../context/actions/auth';
+import { startLogout } from '../../context/';
 
 /* components */
 import { MdExitToApp } from 'react-icons/md';

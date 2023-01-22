@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 import {
   startLoginWithEmailPassword,
   startloginWithGoogle,
-} from '../../context/actions/auth';
+} from '../../context/';
 
 /* components,libs and helpers */
 import {AuthButton} from '../Utils/';
 import { FaGoogle } from 'react-icons/fa';
-import { validationsFormLogin } from '../../helpers/validationsForm';
+import { validationsFormLogin } from '../../helpers/';
 import { useForm } from '../../hooks/';
 
 const initialForm = {
