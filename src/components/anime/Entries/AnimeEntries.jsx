@@ -4,13 +4,11 @@ import { useSelector } from 'react-redux';
 import { searchAnimes } from '../../../helpers/showAnimes';
 
 /* components and lib */
-import Alert from '../../utils/Alert';
 import AnimeEntry from './AnimeEntry';
-import AnimeNewEntryButton from '../ui-actions/AnimeNewEntryButton';
-import AnimeViewAnimes from '../ui-actions/AnimeViewAnimes/AnimeViewAnimes';
-import EntriesForm from '../forms/EntriesForm';
+import {AnimeNewEntry, ViewAnimes} from '../AnimeActions/';
+import {Alert, LoadingData} from '../../Utils/';
+import { EntriesForm } from '../Forms/';
 
-import LoadingData from '../../utils/Loader-data/LoadingData';
 
 function AnimeEntries() {
   // get data from localstorage
@@ -88,13 +86,13 @@ function AnimeEntries() {
       </div>
 
       <div>
-        <AnimeNewEntryButton />
+        <AnimeNewEntry />
 
         {search && animes.length === 0 && (
           <Alert searchTerm={search} />
         )}
 
-        <AnimeViewAnimes
+        <ViewAnimes
           filterAnimes={filterAnimes}
           animesSelected={animesSelected}
           type={type}

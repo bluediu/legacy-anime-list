@@ -4,9 +4,8 @@ import { Redirect, Route, Switch } from 'react-router';
 import authImage from '../assets/img/login.svg';
 
 // components
-import LoginScreen from '../components/auth/LoginScreen';
-import RegisterScreen from '../components/auth/RegisterScreen';
-import Wave from '../components/utils/Wave';
+import { LoginScreen,RegisterScreen } from '../components/Auth/';
+import {Wave} from '../components/Utils/';
 
 function AuthRouter() {
   return (

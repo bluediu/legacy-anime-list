@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { animeViewData } from './data/animeViewData';
 
-function AnimeViewAnimes({
+function ViewAnimes({
   filterAnimes,
   animesSelected,
   type,
@@ -30,10 +30,10 @@ function AnimeViewAnimes({
   );
 }
 
-AnimeViewAnimes.propTypes = {
+ViewAnimes.propTypes = {
   filterAnimes: PropTypes.func.isRequired,
   animesSelected: PropTypes.func.isRequired,
   category: PropTypes.string.isRequired,
 };
 
-export default AnimeViewAnimes;
+export default ViewAnimes;

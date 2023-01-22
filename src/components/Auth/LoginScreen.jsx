@@ -8,7 +8,7 @@ import {
 } from '../../context/actions/auth';
 
 /* components,libs and helpers */
-import AuthButton from '../utils/AuthButton';
+import {AuthButton} from '../Utils/';
 import { FaGoogle } from 'react-icons/fa';
 import { validationsFormLogin } from '../../helpers/validationsForm';
 import { useForm } from '../../hooks/useForm';

@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { startRegisterWithEmailPasswordName } from '../../context/actions/auth';
 
 /* components, helpers* and hooks */
-import AuthButton from '../utils/AuthButton';
+import {AuthButton} from '../Utils/';
 import { validationsFormRegister } from '../../helpers/validationsForm';
 import { useForm } from '../../hooks/useForm';
 
@@ -17,6 +17,7 @@ const initialForm = {
 };
 
 function RegisterScreen() {
+  const [ canSubmit, setCanSubmit ] = useState(false);
   const { form, errors, handleChange, handleBlur } = useForm(
     initialForm,
     validationsFormRegister
@@ -24,10 +25,15 @@ function RegisterScreen() {
 
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    if (!!form.name.length && !!form.email.length && !!form.password.length)
+      setCanSubmit(true);
+  }, [form]);
+
   const handleRegister = (e) => {
     e.preventDefault();
 
-    if (!isValidFormData(errors)) {
+    if (canSubmit) {
       dispatch(
         startRegisterWithEmailPasswordName(
           form.email,
@@ -39,7 +45,7 @@ function RegisterScreen() {
   };
 
   const isValidFormData = ({ name, email, password }) =>
-    !name && !email && !password ? false : true;
+    !(!name && !email && !password);
 
   return (
     <div>
@@ -60,7 +66,6 @@ function RegisterScreen() {
               errors.name && 'is-invalid'
             }`}
             id="name"
-            placeholder="Escribe tu nombre..."
             onChange={handleChange}
             onBlur={handleBlur}
             value={form.name}
@@ -82,7 +87,6 @@ function RegisterScreen() {
               errors.email && 'is-invalid'
             }`}
             id="email"
-            placeholder="Escribe tu email..."
             onChange={handleChange}
             onBlur={handleBlur}
             value={form.email}
@@ -106,7 +110,6 @@ function RegisterScreen() {
               errors.password && 'is-invalid'
             }`}
             id="password"
-            placeholder="Escribe tu Contraseña..."
             onChange={handleChange}
             onBlur={handleBlur}
             value={form.password}
@@ -130,7 +133,6 @@ function RegisterScreen() {
               errors.password && 'is-invalid'
             }`}
             id="passwordRepit"
-            placeholder="Repite tu contraseña..."
             onChange={handleChange}
             onBlur={handleBlur}
             value={form.password2}

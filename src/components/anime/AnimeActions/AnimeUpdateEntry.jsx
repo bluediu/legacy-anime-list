@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'; // ES6
 
 import { MdModeEdit } from 'react-icons/md';
 
-function AnimeUpdateEntryButton({ isValidEntry, handleUpdate }) {
+function AnimeUpdateEntry({ isValidEntry, handleUpdate }) {
   /* styles */
   const updateBtnStyled = {
     margin: 0,
@@ -25,9 +25,9 @@ function AnimeUpdateEntryButton({ isValidEntry, handleUpdate }) {
   );
 }
 
-AnimeUpdateEntryButton.propTypes = {
+AnimeUpdateEntry.propTypes = {
   isValidEntry: PropTypes.bool.isRequired,
   handleUpdate: PropTypes.func.isRequired,
 };
 
-export default AnimeUpdateEntryButton;
+export default AnimeUpdateEntry;

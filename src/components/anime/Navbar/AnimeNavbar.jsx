@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 /* components */
-import Avatar from '../../utils/Avatar';
-import Toast from '../../utils/Toast';
+import {Avatar, Toast } from '../../Utils/';
 
 function AnimeNavbar() {
   const [isToastOpen, setIsToastOpen] = useState(false);

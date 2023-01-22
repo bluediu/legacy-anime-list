@@ -2,7 +2,7 @@ import React from 'react';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { useHistory } from 'react-router-dom';
 
-function AnimeNewEntryButton() {
+function AnimeNewEntry() {
   let history = useHistory();
 
   return (
@@ -15,4 +15,4 @@ function AnimeNewEntryButton() {
   );
 }
 
-export default AnimeNewEntryButton;
+export default AnimeNewEntry;

@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 
-/* components */
-import AnimeEntries from '../components/anime/entries/AnimeEntries';
-import AnimeNavbar from '../components/anime/navbar/AnimeNavbar';
+/* Components */
+import { AnimeNavbar } from '../components/anime/Navbar/';
+import { AnimeEntries } from "../components/anime/Entries/index.";
 
 function AnimePage() {
   useEffect(() => {

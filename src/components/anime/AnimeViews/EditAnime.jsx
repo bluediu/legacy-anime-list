@@ -15,20 +15,16 @@ import { useHistory } from 'react-router-dom';
 import { useForm } from '../../../hooks/useForm';
 
 /* components and lib */
-import AnimeActionNav from '../navbar/AnimeActionNav';
-import AnimeDeleteEntryButton from '../ui-actions/AnimeDeleteEntryButton';
-import AnimePhoto from '../ui-actions/AnimePhoto/AnimePhoto';
-import AnimeUpdateEntryButton from '../ui-actions/AnimeUpdateEntryButton';
-import Clipboard from '../../utils/Clipboard';
-import EditAnimeForm from '../forms/EditAnimeForm';
-import AnimeDate from '../ui-views/AnimeDate';
-import AnimeCheckedInput from '../ui-actions/AnimeCheckedInput';
+import { AnimeActionNav } from '../Navbar';
+import {AnimeDeleteEntry, AnimePhoto, AnimeUpdateEntry, AnimeCheckedInput, AnimeDate} from '../AnimeActions/';
+import {Clipboard} from '../../Utils/';
+import { EditAnimeForm } from '../Forms';
 import Confetti from 'react-confetti';
 
 import { useWindowSize } from 'react-use';
 
 import { useTimeOut } from '../../../hooks/useTimeOut';
-import Modal from '../../utils/Modal/Modal';
+import {Modal} from '../../Utils/';
 import { useModal } from '../../../hooks/useModal';
 
 dayjs.locale('es');
@@ -78,7 +74,7 @@ function EditAnime() {
     dispatch(activeEntry(form.id, { ...form }));
   }, [form, dispatch]);
 
-  /* recibe the db value and assings the state for handle input checked,
+  /* recibe the db value and assigns the state for handle input checked,
    when the component is rendering */
   useEffect(() => {
     setChecked(form.completed);
@@ -194,9 +190,9 @@ function EditAnime() {
         />
       </section>
 
-      <AnimeDeleteEntryButton handleDelete={handleDelete} />
+      <AnimeDeleteEntry handleDelete={handleDelete} />
 
-      <AnimeUpdateEntryButton
+      <AnimeUpdateEntry
         handleUpdate={handleUpdate}
         isValidEntry={isValidEntry}
       />

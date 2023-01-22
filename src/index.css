@@ -27,7 +27,7 @@ body {
   );
 }
 
-/* forms styled and navbar */
+/* Forms styled and Navbar */
 .nav-tran {
   background-color: rgba(253, 254, 254, 0.4);
 }
@@ -69,7 +69,7 @@ body {
   overflow: auto;
 }
 
-/* entries */
+/* Entries */
 
 .container-entries {
   background-color: rgba(72, 75, 106, 0.8);
@@ -86,7 +86,7 @@ body {
 }
 /* 
 @media only screen and (min-width: 1024px) {
-  .container-entries {
+  .container-Entries {
     max-height: 460px;
   }
 }
@@ -272,7 +272,7 @@ body {
   }
 }
 
-/* social auth */
+/* social Auth */
 
 .social-media {
   align-items: center;
@@ -409,7 +409,7 @@ body {
 }
 
 /* @media only screen and (min-height: 800px) {
-  .container-entries {
+  .container-Entries {
     max-height: 547px;
   }
 }

@@ -7,9 +7,9 @@ import { startNewEntry } from '../../../context/actions/entries';
 import { Link } from 'react-router-dom';
 
 /* components */
-import AnimeActionNav from '../navbar/AnimeActionNav';
-import AddNewAnimeForm from '../forms/AddNewAnimeForm';
-import AnimePhoto from '../ui-actions/AnimePhoto/AnimePhoto';
+import { AnimeActionNav } from '../Navbar/';
+import { AddNewAnimeForm } from '../Forms/';
+import {AnimePhoto} from '../AnimeActions/';
 import { GoCheck } from 'react-icons/go';
 
 const initialState = {

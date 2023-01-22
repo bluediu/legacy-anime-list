@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types'; // ES6
 import { BsFillTrashFill } from 'react-icons/bs';
 
-function AnimeDeleteEntryButton({ handleDelete }) {
+function AnimeDeleteEntry({ handleDelete }) {
   /* styles */
   const deleteBtnStyled = {
     margin: 0,
@@ -22,8 +22,8 @@ function AnimeDeleteEntryButton({ handleDelete }) {
   );
 }
 
-AnimeDeleteEntryButton.propTypes = {
+AnimeDeleteEntry.propTypes = {
   handleDelete: PropTypes.func.isRequired,
 };
 
-export default AnimeDeleteEntryButton;
+export default AnimeDeleteEntry;
