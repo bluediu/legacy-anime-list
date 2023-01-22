@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 /* Components */
 import { AnimeNavbar } from '../components/anime/Navbar/';
-import { AnimeEntries } from "../components/anime/Entries/index.";
+import { AnimeEntries } from '../components/anime/Entries/index.';
 
 function AnimePage() {
   useEffect(() => {

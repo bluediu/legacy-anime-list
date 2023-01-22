@@ -1,3 +1,3 @@
-import AnimePhoto from "./AnimePhoto";
+import AnimePhoto from './AnimePhoto';
 
-export {AnimePhoto}
+export { AnimePhoto };

@@ -1,2 +1,2 @@
-export * from './authReducer'
-export * from './entriesReducer'
+export * from './authReducer';
+export * from './entriesReducer';

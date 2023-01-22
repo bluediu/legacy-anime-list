@@ -1,3 +1,3 @@
-import ViewAnimes from "./ViewAnimes";
+import ViewAnimes from './ViewAnimes';
 
-export {ViewAnimes}
+export { ViewAnimes };

@@ -1,3 +1,3 @@
-import LoadingData from "./LoadingData";
+import LoadingData from './LoadingData';
 
-export { LoadingData }
+export { LoadingData };

@@ -1,4 +1,4 @@
-import AnimeEntries from "./AnimeEntries";
-import AnimeEntry from "./AnimeEntry";
+import AnimeEntries from './AnimeEntries';
+import AnimeEntry from './AnimeEntry';
 
-export { AnimeEntries, AnimeEntry }
+export { AnimeEntries, AnimeEntry };

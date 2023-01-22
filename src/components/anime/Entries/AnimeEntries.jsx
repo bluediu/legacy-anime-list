@@ -5,10 +5,9 @@ import { searchAnimes } from '../../../helpers/';
 
 /* components and lib */
 import AnimeEntry from './AnimeEntry';
-import {AnimeNewEntry, ViewAnimes} from '../AnimeActions/';
-import {Alert, LoadingData} from '../../Utils/';
+import { AnimeNewEntry, ViewAnimes } from '../AnimeActions/';
+import { Alert, LoadingData } from '../../Utils/';
 import { EntriesForm } from '../Forms/';
-
 
 function AnimeEntries() {
   // get data from localstorage

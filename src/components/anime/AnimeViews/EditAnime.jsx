@@ -16,14 +16,20 @@ import { useForm, useModal, useTimeOut } from '../../../hooks/';
 
 /* components and lib */
 import { AnimeActionNav } from '../Navbar';
-import {AnimeDeleteEntry, AnimePhoto, AnimeUpdateEntry, AnimeCheckedInput, AnimeDate} from '../AnimeActions/';
-import {Clipboard} from '../../Utils/';
+import {
+  AnimeDeleteEntry,
+  AnimePhoto,
+  AnimeUpdateEntry,
+  AnimeCheckedInput,
+  AnimeDate,
+} from '../AnimeActions/';
+import { Clipboard } from '../../Utils/';
 import { EditAnimeForm } from '../Forms';
 import Confetti from 'react-confetti';
 
 import { useWindowSize } from 'react-use';
 
-import {Modal} from '../../Utils/';
+import { Modal } from '../../Utils/';
 
 dayjs.locale('es');
 
